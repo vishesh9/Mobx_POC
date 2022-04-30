@@ -4,7 +4,13 @@ import React from "react";
 export const UserList = observer(({ userStore }) => {
   console.log(userStore);
   return (
-    <ul data-testid="todoList" style={{ listStyle: "none" }}>
+    <>
+      <div className="row">
+        <div className="column">Name</div>
+        <div className="column">Email</div>
+        <div className="column">SMS</div>
+        <div className="column">Newsletter</div>
+      </div>
       {userStore.users &&
         userStore.users.map((t, i) => (
           <div className="row" key={t.id}>
@@ -38,6 +44,6 @@ export const UserList = observer(({ userStore }) => {
             </div>
           </div>
         ))}
-    </ul>
+    </>
   );
 });
