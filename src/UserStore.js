@@ -1,15 +1,15 @@
 import { action, makeObservable, observable } from "mobx";
 export class UserStore {
   users = [
-    { id: 1, text: "Vishaish", email: true, sms: false, newsletter: false },
+    { id: 1, name: "Vishaish", email: true, sms: false, newsletter: false },
     {
       id: 2,
-      text: "John",
+      name: "John",
       email: false,
       sms: true,
       newsletter: true
     },
-    { id: 3, text: "Dustin", email: false, sms: false, newsletter: true }
+    { id: 3, name: "Dustin", email: false, sms: false, newsletter: true }
   ];
 
   constructor() {
@@ -18,7 +18,8 @@ export class UserStore {
       users: observable,
       toggleEmail: action,
       toggleSms: action,
-      toggleNewsLetter: action
+      toggleNewsLetter: action,
+      addUser: action
     });
   }
 
@@ -32,5 +33,15 @@ export class UserStore {
 
   toggleNewsLetter(index) {
     this.users[index].newsletter = !this.users[index].newsletter;
+  }
+
+  addUser({ name, email, sms, newsletter }) {
+    this.users.push({
+      id: Math.max(this.users.id) + 1,
+      name: name,
+      email: email,
+      sms: sms,
+      newsletter: newsletter
+    });
   }
 }

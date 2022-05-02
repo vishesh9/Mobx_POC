@@ -7,6 +7,7 @@ import "./styles.css";
 import { observer } from "mobx-react-lite";
 import { UserStore } from "./UserStore";
 import { UserList } from "./components/UserList";
+import { AddUser } from "./components/AddUser/AddUser";
 
 export const App = observer(() => {
   const [userStore] = useState(() => new UserStore());
@@ -14,7 +15,8 @@ export const App = observer(() => {
 
   return (
     <div className="App">
-      <h2>Select your choices!</h2>
+      <AddUser userStore={userStore} />
+      <hr />
       <UserList userStore={userStore} />
       {/* <Footer remaining={store.remainingTodos} total={store.todos.length} /> */}
     </div>

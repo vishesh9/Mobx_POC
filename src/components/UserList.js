@@ -5,6 +5,7 @@ export const UserList = observer(({ userStore }) => {
   console.log(userStore);
   return (
     <>
+      <h2>Users</h2>
       <div className="row">
         <div className="column">Name</div>
         <div className="column">Email</div>
@@ -14,32 +15,32 @@ export const UserList = observer(({ userStore }) => {
       {userStore.users &&
         userStore.users.map((t, i) => (
           <div className="row" key={t.id}>
-            <div className="column">{t.text}</div>
+            <div className="column">{t.name}</div>
             <div className="column">
               <input
                 type="checkbox"
                 checked={t.email}
-                onChange={() => {
-                  userStore.toggleEmail(i);
-                }}
+                // onChange={() => {
+                //   userStore.toggleEmail(i);
+                // }}
               />
             </div>
             <div className="column">
               <input
                 type="checkbox"
                 checked={t.sms}
-                onChange={() => {
-                  userStore.toggleSms(i);
-                }}
+                // onChange={() => {
+                //   userStore.toggleSms(i);
+                // }}
               />
             </div>
             <div className="column">
               <input
                 type="checkbox"
                 checked={t.newsletter}
-                onChange={() => {
-                  userStore.toggleNewsLetter(i);
-                }}
+                // onChange={() => {
+                //   userStore.toggleNewsLetter(i);
+                // }}
               />
             </div>
           </div>
